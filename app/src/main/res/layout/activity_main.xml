@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/comunication_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <GridLayout
+            android:id="@+id/remotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="3"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <org.webrtc.SurfaceViewRenderer
+                android:id="@+id/local"
+                android:layout_width="10dp"
+                android:layout_height="200dp"
+                android:layout_row="0"
+                android:layout_rowSpan="1"
+                android:layout_column="0"
+                android:layout_columnSpan="1"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <org.webrtc.SurfaceViewRenderer
+                android:id="@+id/remote2"
+                android:layout_width="10dp"
+                android:layout_height="200dp"
+                android:layout_row="0"
+                android:layout_rowSpan="1"
+                android:layout_column="1"
+                android:layout_columnSpan="1"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <org.webrtc.SurfaceViewRenderer
+                android:id="@+id/remote3"
+                android:layout_width="10dp"
+                android:layout_height="200dp"
+                android:layout_row="0"
+                android:layout_rowSpan="1"
+                android:layout_column="2"
+                android:layout_columnSpan="1"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <org.webrtc.SurfaceViewRenderer
+                android:id="@+id/remote4"
+                android:layout_width="10dp"
+                android:layout_height="200dp"
+                android:layout_row="1"
+                android:layout_rowSpan="1"
+                android:layout_column="0"
+                android:layout_columnSpan="1"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <org.webrtc.SurfaceViewRenderer
+                android:id="@+id/remote5"
+                android:layout_width="10dp"
+                android:layout_height="200dp"
+                android:layout_row="1"
+                android:layout_rowSpan="1"
+                android:layout_column="1"
+                android:layout_columnSpan="1"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <org.webrtc.SurfaceViewRenderer
+                android:id="@+id/remote6"
+                android:layout_width="10dp"
+                android:layout_height="200dp"
+                android:layout_row="1"
+                android:layout_rowSpan="1"
+                android:layout_column="2"
+                android:layout_columnSpan="1"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </GridLayout>
+
+
+        <CheckBox
+            android:id="@+id/mute"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="静音"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/hang_up"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/hang_up"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="挂断"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/switch_camera"
+            app:layout_constraintStart_toEndOf="@id/mute" />
+
+        <CheckBox
+            android:id="@+id/switch_camera"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="切换"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/hang_up" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/connect_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/signaling_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="信令服务器地址"
+            android:text="@string/signaling_address"
+            android:textColor="#212121"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/stun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="stun服务器地址"
+            android:text="@string/stun_address"
+            android:textColor="#212121"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/my_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="我的姓名"
+            android:text="1"
+            android:textColor="#212121"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="连接" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/call_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/call_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="呼叫姓名"
+            android:text="2"
+            android:textColor="#212121"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="呼叫" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/answer_view"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="接听" />
+
+        <Button
+            android:id="@+id/reject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拒接" />
+
+    </LinearLayout>
+
+</FrameLayout>
+

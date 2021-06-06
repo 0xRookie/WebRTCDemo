@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WebRTCDemo</string>
+    <string name="stun_address">stun:http://stun.l.google.com:19302</string>
+    <string name="signaling_address">http://192.168.0.111:8080/webrtc/</string>
+</resources>
